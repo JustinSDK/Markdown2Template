@@ -14,7 +14,7 @@ import org.markdown4j.Markdown4jProcessor;
  * @author Justin
  */
 public class Template2015 {
-    private final String template = fileContent(Paths.get("resources\\template.html"));
+    private final String template = fileContent(Paths.get("resources\\Template2015.html"));
     
     private final String rwdImg =
                   "<div class=\"pure-g\">" 
