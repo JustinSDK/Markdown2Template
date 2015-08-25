@@ -3,8 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/Documents/GitHub/Markdown2Template/src/cc/openhome/Markdown2Template.java</file>
-            <file>file:/D:/Documents/GitHub/Markdown2Template/src/cc/openhome/Template2015.java</file>
+            <file>file:/D:/workspace/Markdown2Template/src/cc/openhome/Markdown2Template.java</file>
+            <file>file:/D:/workspace/Markdown2Template/src/cc/openhome/example/MapperExample.java</file>
+            <file>file:/D:/workspace/Markdown2Template/src/cc/openhome/HtmlPatterns.java</file>
+            <file>file:/D:/workspace/Markdown2Template/src/cc/openhome/IO.java</file>
+            <file>file:/D:/workspace/Markdown2Template/src/cc/openhome/PathContent.java</file>
+            <file>file:/D:/workspace/Markdown2Template/src/cc/openhome/Template2015.java</file>
+            <file>file:/D:/workspace/Markdown2Template/src/cc/openhome/UncheckedIO.java</file>
         </group>
     </open-files>
 </project-private>

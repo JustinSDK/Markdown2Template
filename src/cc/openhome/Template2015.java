@@ -1,13 +1,7 @@
 package cc.openhome;
 
 import static cc.openhome.IO.*;
-import static java.lang.System.out;
 import java.nio.file.Paths;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-import org.markdown4j.Markdown4jProcessor;
 
 /**
  *
@@ -30,21 +24,10 @@ public class Template2015 {
     }    
     
     public PathContent toTemplate(PathContent pathContent) {
-        pathContent.setContent(template
-                   .replace("#content#", Matcher.quoteReplacement(pathContent.getContent()))
-                   .replaceAll("#title#", pathContent.getTitle())
-                   .replaceAll("#url#", docRoot + pathContent.getPath().getFileName().toString().replace(".MD", ".html"))
-                   .replaceAll("#description#", pathContent.getDescription()));
-        return img2RWD(pathContent);
+        return img2RWD(pathContent.toTemplate(template, docRoot));
     }
     
     private PathContent img2RWD(PathContent pathContent) {
-        return replace(pathContent, "img", rwdImg);
+        return pathContent.replace("img", rwdImg);
     }
-        
-    private PathContent replace(PathContent pathContent, String name, String replacement) {
-        pathContent.setContent(HtmlPatterns.get(name).matcher(pathContent.getContent()).replaceAll(replacement));
-        return pathContent;
-    }
-
 }

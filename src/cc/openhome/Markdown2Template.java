@@ -1,9 +1,6 @@
 package cc.openhome;
 
-import cc.openhome.IO;
 import static cc.openhome.IO.markDownlFiles;
-import cc.openhome.Template2015;
-import static java.lang.System.out;
 import java.nio.file.Paths;
 import java.util.List;
 

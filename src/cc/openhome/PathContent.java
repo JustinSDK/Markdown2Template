@@ -1,6 +1,5 @@
 package cc.openhome;
 
-import static java.lang.System.out;
 import java.nio.file.Path;
 import java.util.regex.Matcher;
 import org.markdown4j.Markdown4jProcessor;
@@ -52,10 +51,21 @@ public class PathContent {
         this.content = this.content.replaceAll("<pre><code>", replacement);
         return this;
     }
-
-    private PathContent pre2PrettyPrint() {
-        return pre2PrettyPrint("");
-    }
+    
+    
+    public PathContent toTemplate(String template, String docRoot) {
+        this.content = template
+                   .replace("#content#", content)
+                   .replaceAll("#title#", title)
+                   .replaceAll("#url#", docRoot + path.getFileName().toString().replace(".MD", ".html"))
+                   .replaceAll("#description#", description);
+        return this;
+    }    
+    
+    public PathContent replace(String name, String replacement) {
+        this.content = HtmlPatterns.get(name).matcher(content).replaceAll(replacement);
+        return this;
+    }    
 
     public Path getPath() {
         return path;
@@ -73,13 +83,7 @@ public class PathContent {
         return description;
     }
 
-    public Markdown4jProcessor getMarkdownProcessor() {
-        return markdownProcessor;
-    }
-
     public void setContent(String content) {
         this.content = content;
     }
-    
-    
 }
