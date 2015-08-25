@@ -21,10 +21,6 @@ public class PathContent {
         this.content = IO.withIO(() -> markdownProcessor.process(this.content));
         return processTitle().processDescription().pre2PrettyPrint(codeLang);
     }
-    
-    public PathContent markdown2Html() {
-        return markdown2Html("");
-    }
         
     private PathContent processTitle() {
         this.title = tagContent(this.content, "title");
@@ -73,17 +69,5 @@ public class PathContent {
 
     public String getContent() {
         return content;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
     }
 }
