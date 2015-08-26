@@ -5,7 +5,7 @@ import java.util.regex.Matcher;
 import org.markdown4j.Markdown4jProcessor;
 
 public class PathContent {
-    private Path path;
+    private final Path path;
     private String content;
     private String title;
     private String description;
