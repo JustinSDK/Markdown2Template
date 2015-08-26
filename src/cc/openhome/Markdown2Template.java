@@ -11,11 +11,10 @@ public class Markdown2Template {
         String codeLang = args.length > 2 ? args[2] : "";
         
         List<String> htmlFiles = markDownlFiles(Paths.get(srcDir));
-        Template2015 template2015 = new Template2015(docRoot);
+        Template2015 template2015 = new Template2015(docRoot, codeLang);
         htmlFiles.stream()
                 .map(Paths::get)
                 .map(IO::pathContent)
-                .map(pathContent -> pathContent.markdown2Html(codeLang))
                 .map(template2015::toTemplate)
                 .forEach(IO::write);
     }

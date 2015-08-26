@@ -49,9 +49,9 @@ public class PathContent {
     }
     
     
-    public PathContent toTemplate(String template, String docRoot) {
-        this.content = template
-                   .replace("#content#", content)
+    public PathContent toTemplate(String docRoot, String templateContent) {
+        this.content = templateContent
+                   .replace("#content#", templateContent)
                    .replaceAll("#title#", title)
                    .replaceAll("#url#", docRoot + path.getFileName().toString().replace(".MD", ".html"))
                    .replaceAll("#description#", description);
