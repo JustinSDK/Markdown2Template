@@ -28,7 +28,8 @@ public class Template2015 {
 
     public PathContent toTemplate(PathContent pathContent) {
         return pathContent.markdown2Html(codeLang)
-                .toTemplate(docRoot, content)
-                .replace("img", rwdImg);
+                .replace("img", rwdImg)
+                .toTemplate(docRoot, content);
+                
     }
 }

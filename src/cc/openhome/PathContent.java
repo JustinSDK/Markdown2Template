@@ -55,7 +55,6 @@ public class PathContent {
                    .replaceAll("#title#", title)
                    .replaceAll("#url#", docRoot + path.getFileName().toString().replace(".MD", ".html"))
                    .replaceAll("#description#", description);
-        System.out.println(content);
         return this;
     }    
     
