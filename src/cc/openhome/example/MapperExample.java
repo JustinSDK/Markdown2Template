@@ -8,9 +8,10 @@ import cc.openhome.Markdown2Template;
  */
 public class MapperExample {
      public static void main(String[] args) {
-         String srcDir = "D:\\workspace\\Gossip\\CodeData\\EV3Tutorial\\";
-         String docRoot = "http://openhome.cc/Gossip/CodeData/EV3Tutorial/";
-         String codeLang = "ev3";
-         Markdown2Template.main(new String[] {srcDir, docRoot, codeLang});
+         String templateFile = args[0];
+         String srcDir = args[1];
+         String docRoot = args[2];
+         String codeLang = args[3];
+         Markdown2Template.main(new String[] {templateFile, srcDir, docRoot, codeLang}); 
      }
 }

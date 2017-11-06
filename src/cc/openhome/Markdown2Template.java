@@ -6,16 +6,17 @@ import java.util.List;
 
 public class Markdown2Template {
     public static void main(String[] args) {
-        String srcDir = args[0];
-        String docRoot = args[1];
-        String codeLang = args.length > 2 ? args[2] : "";
+        String templateName = args[0];
+        String srcDir = args[1];
+        String docRoot = args[2];
+        String codeLang = args.length > 3 ? args[3] : "";
         
         List<String> htmlFiles = markDownlFiles(Paths.get(srcDir));
-        Template2015 template2015 = new Template2015(docRoot, codeLang);
+        Template template = new Template(templateName, docRoot, codeLang);
         htmlFiles.stream()
                 .map(Paths::get)
                 .map(IO::pathContent)
-                .map(template2015::toTemplate)
+                .map(template::toTemplate)
                 .forEach(IO::write);
     }
 }

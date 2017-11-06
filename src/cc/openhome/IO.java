@@ -19,7 +19,7 @@ public class IO {
 
     public static List<String> markDownlFiles(Path path) {
         try (final Stream<Path> paths = withIO(() -> Files.list(path))) {
-            return paths.map(Path::toString).filter((String str) -> str.endsWith(".MD")).collect(toList());
+            return paths.map(Path::toString).filter((String str) -> str.endsWith(".MD") || str.endsWith(".md")).collect(toList());
         }
     }
 
@@ -40,7 +40,7 @@ public class IO {
     }
     
     public static void write(PathContent pathContent) {
-        Path htmlPath = Paths.get(pathContent.getPath().toString().replace(".MD", ".html"));
+        Path htmlPath = Paths.get(pathContent.getPath().toString().replace(".MD", ".html").replace(".md", ".html"));
         withIO(() -> Files.write(htmlPath, pathContent.getContent().getBytes("UTF-8"), TRUNCATE_EXISTING, CREATE));
     }
 }
