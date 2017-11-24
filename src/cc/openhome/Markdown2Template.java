@@ -9,10 +9,11 @@ public class Markdown2Template {
         String templateName = args[0];
         String srcDir = args[1];
         String docRoot = args[2];
-        String codeLang = args.length > 3 ? args[3] : "";
+        String toc = args[3];
+        String codeLang = args.length > 4 ? args[4] : "";
         
         List<String> htmlFiles = markDownlFiles(Paths.get(srcDir));
-        Template template = new Template(templateName, docRoot, codeLang);
+        Template template = new Template(templateName, docRoot, toc, codeLang);
         htmlFiles.stream()
                 .map(Paths::get)
                 .map(IO::pathContent)

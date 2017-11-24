@@ -7,6 +7,7 @@ import org.markdown4j.Markdown4jProcessor;
 public class PathContent {
     private final Path path;
     private String content;
+    
     private String title;
     private String description;
     
@@ -49,12 +50,13 @@ public class PathContent {
     }
     
     
-    public PathContent toTemplate(String docRoot, String templateContent) {
+    public PathContent toTemplate(String docRoot, String toc, String templateContent) {
         this.content = templateContent
                    .replace("#content#", content)
                    .replaceAll("#title#", title)
                    .replaceAll("#url#", docRoot + path.getFileName().toString().replace(".MD", ".html"))
-                   .replaceAll("#description#", description);
+                   .replaceAll("#description#", description)
+                   .replaceAll("#toc#", toc);
         return this;
     }    
     
