@@ -29,8 +29,10 @@ public class HtmlPreProcessor {
         
         this.path = path;
         this.title = title(html);
-        this.content = html.replaceFirst(String.format("<p>%s\\n<br  />", title), "<p>")
-                           .replace("img", rwdImg);
+        this.content = HtmlPatterns.get("img").matcher(
+            html.replaceFirst(String.format("<p>%s\\n<br  />", title), "<p>")
+        ).replaceAll(rwdImg);
+
     }
 
     private String title(String content) {
