@@ -1,2 +1,8 @@
-#Fri Mar 02 08:22:32 CST 2018
+auto.sync=false
+build.scans.enabled=false
+connection.gradle.distribution=GRADLE_DISTRIBUTION(LOCAL_INSTALLATION(C\:\\Greenware\\gradle-4.10.2))
 connection.project.dir=
+eclipse.preferences.version=1
+gradle.user.home=
+offline.mode=false
+override.workspace.settings=true

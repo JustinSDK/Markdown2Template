@@ -15,4 +15,4 @@ include 'api'
 include 'services:webservice'
 */
 
-rootProject.name = 'MarkdownToTemplate'
+rootProject.name = 'Markdown2Template'

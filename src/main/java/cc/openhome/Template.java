@@ -4,6 +4,7 @@ import static cc.openhome.IO.*;
 
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.regex.Matcher;
 
 public class Template {
     private final String templateContent;
@@ -20,30 +21,30 @@ public class Template {
     }
     
     private String description(String html) {
-        return HtmlPatterns.get("all")
-                          .matcher(html)
-                          .replaceAll("")
-                          .trim()
-                          .substring(0, 100) + "...";
+    	String all = HtmlPatterns.get("all")
+	        .matcher(html)
+	        .replaceAll("")
+	        .trim();
+        return (all.length() > 100 ? all.substring(0, 100) : all) +  "...";
     }
 
     public Html toHTML(HtmlPreProcessor htmlPreProcessor) {
         Path path = htmlPreProcessor.getPath();
         String title = htmlPreProcessor.getTitle();
         String content = htmlPreProcessor.getContent();
-        
+
         String replacement = codeLang.equals("") ? 
                 "<pre class=\"prettyprint\"><code>" :
                 String.format("<pre class=\"prettyprint\"><code lang=\"%s\">", codeLang);
         
         String desc = description(content);
-        
+
         content = templateContent
                    .replace("#content#", content.replaceAll("<pre><code>", replacement))
                    .replaceAll("#title#", title)
                    .replaceAll("#url#", urlBase + path.getFileName().toString().replace(".md", ".html").replace(".MD", ".html"))
-                   .replaceAll("#description#", desc)
-                   .replaceAll("#toc#", toc);
+                   .replaceAll("#description#", Matcher.quoteReplacement(desc))
+                   .replaceAll("#toc#", toc); 
         
         return new Html(content, Paths.get(path.toString().replace(".md", ".html").replace(".MD", ".html")));
     }

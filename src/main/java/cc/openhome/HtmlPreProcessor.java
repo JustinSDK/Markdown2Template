@@ -31,6 +31,7 @@ public class HtmlPreProcessor {
         this.title = title(html);
         this.content = HtmlPatterns.get("img").matcher(
             html.replaceFirst(String.format("<p>%s\\n<br  />", title), "<p>")
+                .replaceFirst(String.format("<h1>%s</h1>\n<p>", title), "<p>")
         ).replaceAll(rwdImg);
 
     }
